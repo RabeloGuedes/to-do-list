@@ -1,6 +1,7 @@
 const addTaskButton = document.querySelector('#criar-tarefa');
 const orderedList = document.querySelector('#lista-tarefas');
 const inputTask = document.querySelector('#texto-tarefa');
+const removeButton = document.querySelector('#apaga-tudo');
 
 addTaskButton.addEventListener('click', function () {
   let newItem = document.createElement('li');
@@ -32,5 +33,12 @@ orderedList.addEventListener('dblclick', function (event) {
     } else {
       event.target.className = 'itens-list';
     }
+  }
+})
+
+removeButton.addEventListener('click', function (event) {
+  const itensList = document.querySelectorAll('li');
+  for (let index = 0; index < itensList.length; index += 1) {
+    itensList[index].remove();
   }
 })
