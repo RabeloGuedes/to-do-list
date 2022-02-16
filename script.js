@@ -2,6 +2,7 @@ const addTaskButton = document.querySelector('#criar-tarefa');
 const orderedList = document.querySelector('#lista-tarefas');
 const inputTask = document.querySelector('#texto-tarefa');
 const removeButton = document.querySelector('#apaga-tudo');
+const removeDoneTasksButton = document.querySelector('#remover-finalizados');
 
 addTaskButton.addEventListener('click', function () {
   let newItem = document.createElement('li');
@@ -36,9 +37,16 @@ orderedList.addEventListener('dblclick', function (event) {
   }
 })
 
-removeButton.addEventListener('click', function (event) {
+removeButton.addEventListener('click', function () {
   const itensList = document.querySelectorAll('li');
   for (let index = 0; index < itensList.length; index += 1) {
     itensList[index].remove();
+  }
+})
+
+removeDoneTasksButton.addEventListener('click', function () {
+  const doneTasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < doneTasks.length; index += 1) {
+    doneTasks[index].remove();
   }
 })
