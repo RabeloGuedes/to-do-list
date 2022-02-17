@@ -9,9 +9,9 @@ addTaskButton.addEventListener('click', function () {
   let newItem = document.createElement('li');
   const itensList = document.querySelectorAll('li');
   for (let index = 0; index < itensList.length; index += 1) {
-    itensList[index].style.backgroundColor = 'white';
+    itensList[index].classList.remove('gray');
   }
-  newItem.style.backgroundColor = 'rgb(128, 128, 128)';
+  newItem.classList.add('gray');
   newItem.innerText = inputTask.value;
   orderedList.appendChild(newItem);
   inputTask.value = '';
@@ -21,18 +21,18 @@ orderedList.addEventListener('click', function (event) {
   const itensList = document.querySelectorAll('li');
   if (event.target != orderedList) {
     for (let index = 0; index < itensList.length; index += 1) {
-      itensList[index].style.backgroundColor = 'white';
+      itensList[index].classList.remove('gray');
     }
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.classList.add('gray');
   }
 })
 
 orderedList.addEventListener('dblclick', function (event) {
   if (event.target != orderedList) {
-    if (event.target.className != 'completed') {
-      event.target.className = 'completed';
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');;
     } else {
-      event.target.className = 'itens-list';
+      event.target.classList.add('completed');
     }
   }
 })
@@ -60,3 +60,4 @@ window.onload = function () {
   orderedList = document.querySelector('#lista-tarefas');
   orderedList.innerHTML = savedList;
 }
+
