@@ -18,11 +18,11 @@ addTaskButton.addEventListener('click', function () {
   newItem.innerText = inputTask.value;
   orderedList.appendChild(newItem);
   inputTask.value = '';
-})
+});
 
 orderedList.addEventListener('click', function (event) {
   const itensList = document.querySelectorAll('li');
-  if (event.target != orderedList) {
+  if (event.target !== orderedList) {
     for (let index = 0; index < itensList.length; index += 1) {
       itensList[index].classList.remove('gray');
       itensList[index].classList.remove('selected');
@@ -30,35 +30,35 @@ orderedList.addEventListener('click', function (event) {
     event.target.classList.add('gray');
     event.target.classList.add('selected');
   }
-})
+});
 
 orderedList.addEventListener('dblclick', function (event) {
-  if (event.target != orderedList) {
+  if (event.target !== orderedList) {
     if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');;
     } else {
       event.target.classList.add('completed');
     }
   }
-})
+});
 
 removeButton.addEventListener('click', function () {
   const itensList = document.querySelectorAll('li');
   for (let index = 0; index < itensList.length; index += 1) {
     itensList[index].remove();
   }
-})
+});
 
 removeDoneTasksButton.addEventListener('click', function () {
   const doneTasks = document.querySelectorAll('.completed');
   for (let index = 0; index < doneTasks.length; index += 1) {
     doneTasks[index].remove();
   }
-})
+});
 
 saveTasksButton.addEventListener('click', function () {
   localStorage.setItem('lista', orderedList.innerHTML);
-})
+});
 
 window.onload = function () {
   const savedList = localStorage.getItem('lista');
@@ -75,7 +75,7 @@ moveUpButton.addEventListener('click', function () {
       selected.parentElement.insertBefore(selected, selected.previousElementSibling);
     }
   }
-})
+});
 
 moveDownButton.addEventListener('click', function () {
   let selected = document.querySelector('.selected');
@@ -86,8 +86,7 @@ moveDownButton.addEventListener('click', function () {
       selected.parentElement.insertBefore(selected.nextElementSibling, selected);
     }
   }
-})
-
+});
 
 selectedRemoveButton.addEventListener('click', function () {
   let selected = document.querySelector('.selected');
@@ -96,4 +95,4 @@ selectedRemoveButton.addEventListener('click', function () {
   } else {
     selected.remove();
   }
-})
+});
