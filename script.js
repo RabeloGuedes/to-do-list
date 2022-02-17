@@ -68,20 +68,32 @@ window.onload = function () {
 // Source: https://stackoverflow.com/questions/34913953/move-an-element-one-place-up-or-down-in-the-dom-tree-with-javascript
 moveUpButton.addEventListener('click', function () {
   let selected = document.querySelector('.selected');
-  if(selected.previousElementSibling) {
-    selected.parentElement.insertBefore(selected, selected.previousElementSibling);
+  if (selected === null) {
+    selected = '';
+  } else {
+    if(selected.previousElementSibling) {
+      selected.parentElement.insertBefore(selected, selected.previousElementSibling);
+    }
   }
 })
 
 moveDownButton.addEventListener('click', function () {
   let selected = document.querySelector('.selected');
-  if(selected.nextElementSibling) {
-    selected.parentElement.insertBefore(selected.nextElementSibling, selected);
+  if (selected === null) {
+    selected = '';
+  } else {
+    if(selected.nextElementSibling) {
+      selected.parentElement.insertBefore(selected.nextElementSibling, selected);
+    }
   }
 })
 
 
 selectedRemoveButton.addEventListener('click', function () {
   let selected = document.querySelector('.selected');
-  selected.remove();
+  if (selected === null) {
+    selected = '';
+  } else {
+    selected.remove();
+  }
 })

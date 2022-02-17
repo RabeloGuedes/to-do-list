@@ -1,5 +1,6 @@
 li {
   cursor: pointer;
+  font-size: 23px;
 }
 
 .gray {
@@ -7,5 +8,5 @@ li {
 }
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0,0,0);
 }
