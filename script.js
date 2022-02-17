@@ -11,10 +11,6 @@ const selectedRemoveButton = document.querySelector('#remover-selecionado');
 addTaskButton.addEventListener('click', function () {
   let newItem = document.createElement('li');
   const itensList = document.querySelectorAll('li');
-  for (let index = 0; index < itensList.length; index += 1) {
-    itensList[index].classList.remove('gray');
-  }
-  newItem.classList.add('gray');
   newItem.innerText = inputTask.value;
   orderedList.appendChild(newItem);
   inputTask.value = '';
