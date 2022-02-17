@@ -4,6 +4,8 @@ const inputTask = document.querySelector('#texto-tarefa');
 const removeButton = document.querySelector('#apaga-tudo');
 const removeDoneTasksButton = document.querySelector('#remover-finalizados');
 const saveTasksButton = document.querySelector('#salvar-tarefas');
+const moveUpButton = document.querySelector('#mover-cima');
+const moveDownButton = document.querySelector('#mover-baixo');
 
 addTaskButton.addEventListener('click', function () {
   let newItem = document.createElement('li');
@@ -22,8 +24,10 @@ orderedList.addEventListener('click', function (event) {
   if (event.target != orderedList) {
     for (let index = 0; index < itensList.length; index += 1) {
       itensList[index].classList.remove('gray');
+      itensList[index].classList.remove('selected');
     }
     event.target.classList.add('gray');
+    event.target.classList.add('selected');
   }
 })
 
@@ -60,4 +64,17 @@ window.onload = function () {
   orderedList = document.querySelector('#lista-tarefas');
   orderedList.innerHTML = savedList;
 }
+// Source: https://stackoverflow.com/questions/34913953/move-an-element-one-place-up-or-down-in-the-dom-tree-with-javascript
+moveUpButton.addEventListener('click', function () {
+  let selected = document.querySelector('.selected');
+  if(selected.previousElementSibling) {
+    selected.parentElement.insertBefore(selected, selected.previousElementSibling);
+  }
+})
 
+moveDownButton.addEventListener('click', function () {
+  let selected = document.querySelector('.selected');
+  if(selected.nextElementSibling) {
+    selected.parentElement.insertBefore(selected.nextElementSibling, selected);
+  }
+})
