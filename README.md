@@ -2,7 +2,7 @@
 
 <details>
   <summary>
-    Sabia mais
+    Saiba mais
   </summary>
   
   # To Do List
